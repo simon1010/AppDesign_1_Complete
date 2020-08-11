@@ -1,6 +1,9 @@
 set(INCROOT ${PROJECT_SOURCE_DIR}/include/Galileo/Loader)
 set(SRCROOT ${PROJECT_SOURCE_DIR}/src/Galileo/Loader)
 
+# Find the Core library
+find_package(Qt5 COMPONENTS Core Widgets REQUIRED)
+
 # all source files
 set(SRC
     ${SRCROOT}/main.cpp
@@ -16,4 +19,6 @@ include_directories("${Galileo_SOURCE_DIR}/bin")
 
 add_executable(Loader ${SRC})
 
-target_link_libraries(Loader)
+target_link_libraries(Loader Application Qt5::Core Qt5::Widgets )
+
+set_property(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT Loader)

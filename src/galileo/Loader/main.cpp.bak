@@ -1,14 +1,14 @@
 #include <QApplication.h>
-#include <galileo\Framework\Application.h>
-#include <galileo\Application\ApplicationModel.h>
+#include <spring\Framework\Application.h>
+#include <spring\Application\ApplicationModel.h>
 
 int main(int argc, char **argv)
 {
 	QApplication qApplication(argc, argv);
 
-	galileo::Application& app = galileo::Application::getInstance();
+	galielo::Application& app = galielo::Application::getInstance();
 
-	galileo::ApplicationModel appModel;
+	galielo::ApplicationModel appModel;
 
 	app.setApplicationModel(&appModel);
 

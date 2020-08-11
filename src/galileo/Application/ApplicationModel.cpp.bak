@@ -1,30 +1,29 @@
-#include <galileo\Application\ApplicationModel.h>
-#include <galileo\Application\ConfigScene.h>
-#include <galileo\Application\AppScene.h>
+#include "..\..\..\include\spring\Application\ApplicationModel.h"
+#include <spring\Application\InitialScene.h>
+#include <spring\Application\BaseScene.h>
 
 const std::string configSceneName = std::string("Config scene");
-const std::string appSceneName    = std::string("App scene");
+const std::string appSceneName = std::string("App scene");
 
 namespace galileo
 {
-	ApplicationModel::ApplicationModel() : IApplicationModel()
+	ApplicationModel::ApplicationModel():IApplicationModel()
 	{
+
 	}
 
 	void ApplicationModel::defineScene()
 	{
 		m_initialScene = std::make_shared<ConfigScene>(configSceneName);
-		m_secondScene  = std::make_shared<AppScene>(appSceneName);
+		m_secondScene = std::make_shared<AppScene>(appSceneName);
 
-		m_Scenes.emplace(configSceneName, m_initialScene.get());
-		m_Scenes.emplace(appSceneName, m_secondScene.get());
+		m_Scenes.emplace(initialSceneName, m_initialScene.get());
+		m_Scenes.emplace(baseSceneName, m_secondScene.get());
 	}
-
 	void ApplicationModel::defineInitialScene()
 	{
 		m_InitialScene = configSceneName;
 	}
-
 	void ApplicationModel::defineTransientData()
 	{
 		//add initial values for all transient data 

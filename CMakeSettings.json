@@ -10,7 +10,13 @@
       "cmakeCommandArgs": "",
       "buildCommandArgs": "",
       "ctestCommandArgs": "",
-      "variables": []
+      "variables": [
+        {
+          "name": "Qt5_DIR",
+          "value": "E:/Programming/QT/5.15.0/msvc2019_64/lib/cmake",
+          "type": "PATH"
+        }
+      ]
     },
     {
       "name": "x86-Debug",

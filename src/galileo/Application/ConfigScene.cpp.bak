@@ -1,4 +1,4 @@
-#include <galileo/Application/ConfigScene.h>
+#include <spring/Application/ConfigScene.h>
 
 #include "ui_config_scene.h"
 
@@ -48,17 +48,17 @@ namespace galileo
 
 	}
 
-	void ConfigScene::release()
+	void InitialScene::release()
 	{
 		delete centralWidget;
 	}
 
-	ConfigScene::~ConfigScene()
+	InitialScene::~InitialScene()
 	{
 
 	}
 
-	void ConfigScene::mf_OkButton()
+	void InitialScene::mf_OkButton()
 	{
 		auto applicationNameLineEdit = centralWidget->findChild<QLineEdit*>("applicationNameLineEdit");
 		const std::string appName = applicationNameLineEdit->text().toStdString();
@@ -84,7 +84,7 @@ namespace galileo
 		m_TransientDataCollection.erase("RefreshRate");
 		m_TransientDataCollection.emplace("RefreshRate", newRefreshRate);
 
-		const std::string c_szNextSceneName = "App scene";
+		const std::string c_szNextSceneName = "Base scene";
 		emit SceneChange(c_szNextSceneName);
 	}
 	
